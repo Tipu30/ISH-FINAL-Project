@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WellCare</title>
+   <link rel="icon" type="image/x-icon" th:href="@{/assets/images/wellcare.png}">
+  <link rel="stylesheet" th:href="@{/assets/css/application_registration.css}">
+  <style>
+    .details .required {
+      color: red;
+    }
+    .btn-cancel {
+      position: absolute;
+      bottom: 440px;
+      right: 1px;
+      color: #000000;
+      background-color: transparent;
+      border: none;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    
+    .form-container {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content form-container">
+      <!-- Cancel Button -->
+      <a th:href="@{/dashboard}" class="btn-cancel">&times;</a>
+      
+       <div th:if="${notEligible}" class="alert alert-danger text-center" role="alert">
+                <span th:text="${notEligible}"></span>
+            </div>
+
+    <form th:action="@{/register}" th:object="${citizen}" method="post" id="application-form">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name <span class="required">*</span></span>
+            <input type="text" placeholder="Enter your name" th:field="*{fullName}" required>
+          </div>
+
+          <div class="input-box">
+            <span class="details">Email <span class="required">*</span></span>
+            <input type="email" placeholder="Enter your email" th:field="*{email}" required>
+          </div>
+  
+          <div class="input-box">
+            <span class="details">Phone Number <span class="required">*</span></span>
+            <input type="text" placeholder="Enter your number" th:field="*{phoneNumber}" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">State Name <span class="required">*</span></span>
+            <input type="text" placeholder="Enter your state name" th:field="*{stateName}" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">SSN Number <span class="required">*</span></span>
+            <input type="text" placeholder="Enter your SSN number" th:field="*{ssn}" required>
+          </div>
+      
+          <div class="input-box">
+            <span class="details">D.O.B <span class="required">*</span></span>
+            <input type="date" th:field="*{dob}" required>
+          </div>
+        
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1" th:field="*{gender}" value="M">
+          <input type="radio" name="gender" id="dot-2" th:field="*{gender}" value="F">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="gender">Male</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Female</span>
+            </label>
+          </div>
+        </div>
+      
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+

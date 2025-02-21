@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellCare</title>
+     <link rel="icon" type="image/x-icon" th:href="@{/assets/images/wellcare.png}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/index_styles.css">
+    <link rel="stylesheet" href="assets/css/toast.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center" th:href="@{/}">
+               
+                <img th:src="@{/assets/images/wellcare.png}" alt="WellCare Logo" class="img-fluid me-2" style="max-width: 250px;">
+            </a>
+
+            <!-- Navbar Links -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto" id="main-nav-section">
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center" th:href="@{/dashboard}">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center" th:href="@{/contact}">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center" th:href="@{/user-register}">
+                            <i class="bi bi-person me-2"></i>SignUp
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex align-items-center" th:href="@{/user-login}">
+                            <i class="bi bi-arrow-bar-right me-2"></i>SignIn
+                        </a>
+                    </li>
+                    <!-- User Dropdown -->
+                    <li class="nav-item dropdown d-none" id="user-dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle me-2"></i>
+                            <span id="user-name"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="account.html">Account</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><button class="dropdown-item text-danger" id="signout-button">Sign Out</button></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="text-center py-5">
+        <div class="container">
+            <h1 class="header-main-section-head1"><b>Welcome to WellCare</b></h1>
+            <p class="lead text-muted">Protecting Health, Empowering Lives</p>
+        </div>
+    </header>
+
+    <!-- Products Section -->
+    <section id="products" class="py-5">
+        <div class="container">
+            <div class="header-main-section text-center mb-4">
+                <h4><b>CA state offers the following schemes and plans:</b></h4>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/assets/images/snap.jfif" class="card-img-top" alt="SNAP">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">SNAP</h2>
+                            <p class="card-text">SNAP provides food-purchasing assistance for low- and no-income individuals and families in the U.S. Benefits are distributed via EBT cards, which can be used to buy eligible food items at authorized retailers. The program aims to support adequate nutrition and health.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/assets/images/CCAP1.jfif" class="card-img-top" alt="CCAP">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">CCAP</h2>
+                            <p class="card-text">CCAP helps low-income families and those on Temporary Assistance pay for child care, allowing them to work, attend school, or participate in job training. Financial assistance covers some or all child care costs based on family circumstances, with eligibility determined by income and other factors.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/assets/images/medicaid.jfif" class="card-img-top" alt="Medicaid">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">Mediaid</h2>
+                            <p class="card-text">Medicaid is a joint federal and state health plan for low-income individuals, providing essential medical coverage. It covers services like doctor visits, hospital stays, and prescription drugs, with eligibility varying by state.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/assets/images/Medicare.jfif" class="card-img-top" alt="Medicare">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">Medicare</h2>
+                            <p class="card-text">Medicare is a federal health plan for citizens aged 65 and older, and for some younger individuals with disabilities. It provides essential medical coverage, including hospital stays, medical services, and prescription drugs.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-4">
+                    <div class="card h-100">
+                        <img src="/assets/images/QHP.png" class="card-img-top" alt="QHP">
+                        <div class="card-body">
+                            <h2 class="card-title text-center">QHP</h2>
+                            <p class="card-text">A Qualified Health Plan is a commercial health insurance plan that meets the Affordable Care Act standards. It offers comprehensive coverage, including emergency care, hospitalization, and preventive services, and can be purchased through the Health Insurance Marketplace.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+     <!-- Footer -->
+    <footer class="text-center bg-dark py-3">
+        <div class="container footer-container">
+            <a th:href="@{/admin-login}" class="btn btn-primary">Admin SignIn</a>
+        </div>
+        <div>
+            <p id="copyright" class="text-light m-0">&copy; 2024 WellCare. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/index_scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Plan - WellCare</title>
+    <!-- Bootstrap CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Load Custom CSS -->
+    <link rel="icon" type="image/x-icon" th:href="@{/assets/images/wellcare.png}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(to left, #79c2d0, #000000);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .card {
+            border: 2px solid #79c2d0;
+            border-radius: 10px;
+            background: white;
+            padding: 40px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            width: 120px; /* Adjusted size */
+            height: auto;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #79c2d0;
+            color: black;
+            border: 2px solid #79c2d0;
+            transition: color 0.3s, border-color 0.3s;
+            padding: 10px 30px;
+        }
+
+        .btn-primary:hover {
+            color: black;
+            background-color: #79c2d0;
+        }
+        
+        
+        .btn-cancel {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color:black;
+            background-color: transparent;
+            border: none;
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+            display: block;
+        }
+
+        .form-control {
+            border-color: #79c2d0;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 8px rgba(121, 194, 208, 0.3);
+        }
+
+        .form-select.status {
+            width: auto;
+            min-width: 150px;
+            background-color: #2CA6A4;
+            color: #fff;
+            border-color: #2CA6A4;
+            padding: 8px 12px;
+            margin-right: 200px;
+        }
+
+        .form-select.status:focus {
+            background-color: #249b95;
+            box-shadow: 0 0 8px rgba(44, 166, 164, 0.3);
+        }
+
+        .form-footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Adds spacing between elements */
+            margin-top: 20px;
+            margin-right: 260px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card shadow p-4 mx-auto">
+            <h2 class="text-center mb-4" style="margin-top: 20px;">Update Plan</h2>
+            <a th:href="@{/plan/all}" class="btn-cancel">&times;</a>
+            <form th:action="@{/update}" th:object="${planData}" method="post" id="plan-form">
+                <div class="mb-3">
+                    <label for="planId" class="form-label">Plan ID:</label>
+                    <input type="text" class="form-control" name="planId" th:field="*{planId}" id="planId" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="planName" class="form-label">Plan Name:</label>
+                    <input type="text" class="form-control" name="planName" th:field="*{planName}" id="planName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="startDate" class="form-label">Start Date:</label>
+                    <input type="date" class="form-control" name="startDate" th:field="*{startDate}" id="startDate" required>
+                </div>
+                <div class="mb-3">
+                    <label for="endDate" class="form-label">End Date:</label>
+                    <input type="date" class="form-control" name="endDate" th:field="*{endDate}" id="endDate" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea class="form-control" name="description" th:field="*{description}" id="description" rows="4" required></textarea>
+                </div>
+                
+                <!-- Dropdown and Submit Button in Same Row -->
+                <div class="form-footer">
+                    <select class="form-select status" name="activeSw" th:field="*{activeSw}" id="activeSw" required>
+                        <option value="active" th:selected="${planData.activeSw == true}">Active</option>
+                        <option value="inactive" th:selected="${planData.activeSw == false}">Inactive</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Update Plan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Bootstrap JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

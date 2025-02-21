@@ -1,0 +1,114 @@
+/* Color Palette */
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.header1 {
+    background-color: #2CA6A4; /* Ensure this matches your design */
+    height: 30vh; /* 30% of the viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.section1 {
+    height: 90vh; /* 70% of the viewport height */
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    padding: 20px;
+    background-color: #fff; /* White background */
+}
+
+.first-color { 
+    background: #79c2d0; 
+    color: #fff; /* Ensure text is readable */
+}
+
+.first-color:hover {
+    background: #5585b5; /* Slightly darker shade for hover effect */
+    color: #fff;
+}
+
+.btn-large {
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+.second-color { 
+    background: #53a8b6; 
+    color: #fff;
+}
+
+.third-color { 
+    background: #79c2d0; 
+    color: #fff;
+}
+
+.fourth-color { 
+    background: #bbe4e9; 
+    color: #000; /* Dark text for lighter background */
+}
+
+/* Table Styling */
+table tr td {
+    vertical-align: middle;
+     color: #5f7083;
+    
+}
+
+td button {
+    margin: 5px;
+}
+
+td button i {
+    font-size: 20px;
+}
+
+/* Modal Header */
+.modal-header {
+    background:#53a8b6;
+    color: #fff;
+}
+
+/* Modal Body Form */
+.modal-body form .inputField {
+    padding-left: 20px;
+}
+
+form .inputField > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+form .inputField > div label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+form .inputField > div input {
+    width: 75%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 2px solid #5585b5; /* First color from the palette */
+}
+
+.modal-footer .submit {
+    font-size: 18px;
+}
+
+/* Logo Styling */
+.logo {
+    width: 200px; /* Adjust the size as needed */
+    height: auto;
+    margin-right: 10px;
+}
+
+.adminHeader {
+    margin-top: 20px;
+}
